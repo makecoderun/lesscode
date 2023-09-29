@@ -1,7 +1,7 @@
 {
-  "name": "code-less",
+  "name": "next-lesscode",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,5 +16,17 @@
   "devDependencies": {
     "eslint": "latest",
     "eslint-config-next": "latest"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "/sources/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makecoderun/code-less.git"
+  },
+  "author": "sourabhkumhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makecoderun/code-less/issues"
+  },
+  "homepage": "https://github.com/makecoderun/code-less#readme"
 }
