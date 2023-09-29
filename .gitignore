@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+#files and folders
+/pages
+.eslintrc.json
+next.config.js
+
 # testing
 /coverage
 
