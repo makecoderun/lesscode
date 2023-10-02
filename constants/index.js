@@ -1,4 +1,4 @@
-export const defaultResponseMessage = {
+const defaultResponseMessage = {
   100: "Continue",
   101: "Switching Protocols",
   102: "Processing",
@@ -62,10 +62,8 @@ export const defaultResponseMessage = {
   510: "Not Extended",
   511: "Network Authentication Required",
 };
-export const successCode = new Set([
-  200, 201, 202, 203, 204, 205, 206, 207, 208, 226,
-]);
-export const months = [
+const successCode = new Set([200, 201, 202, 203, 204, 205, 206, 207, 208, 226]);
+const months = [
   { name: "January", short: "Jan" },
   { name: "February", short: "Feb" },
   { name: "March", short: "Mar" },
@@ -79,7 +77,7 @@ export const months = [
   { name: "November", short: "Nov" },
   { name: "December", short: "Dec" },
 ];
-export const genres = [
+const genres = [
   { label: "Rock", value: "Rock" },
   { label: "Pop", value: "Pop" },
   { label: "Hip Hop", value: "Hip Hop" },
@@ -111,3 +109,10 @@ export const genres = [
   { label: "Instrumental", value: "Instrumental" },
   { label: "Opera", value: "Opera" },
 ];
+
+module.exports = {
+  defaultResponseMessage,
+  successCode,
+  months,
+  genres,
+};

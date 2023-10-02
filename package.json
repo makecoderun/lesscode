@@ -1,6 +1,6 @@
 {
   "name": "next-lesscode",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -26,7 +26,7 @@
     "type": "git",
     "url": "git+https://github.com/makecoderun/code-less.git"
   },
-  "author": "sourabhkumhar",
+  "author": "coderun",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/makecoderun/code-less/issues"
