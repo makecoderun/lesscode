@@ -1,40 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+  next-lesscode Package
 
-## Getting Started
+next-lesscode Package
+=====================
 
-First, run the development server:
+next-lesscode is an npm package built on Next.js that contains reusable functions, constants, and regular expressions for various tasks. Additionally, it provides components (planned for future development) that can be utilized in your Next.js projects.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Functions
+---------
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*   `getDeviceType()`: Determines the type of device (mobile, tablet, or PC).
+*   `getError(error)`: Retrieves the first error encountered in a nested error object.
+*   `errObj(errorCondition, message)`: Creates an error object based on the provided conditions and message.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Regular Expressions
+-------------------
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+*   `emailRegex`: Regular expression for validating email addresses.
+*   `usernameRegex`: Regular expression for validating usernames.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Constants
+---------
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+*   `months`: An array of month names and abbreviations.
+*   `genres`: An array of music genres.
+*   `countries`: An array of country objects with IDs, names, and ISO2 codes.
 
-## Learn More
+Contributing
+------------
 
-To learn more about Next.js, take a look at the following resources:
+We welcome contributions from the community. To contribute to next-lesscode, please follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1.  Fork the repository on GitHub.
+2.  Clone your forked repository to your local machine.
+3.  Create a new branch for your feature or bug fix.
+4.  Make your changes and commit them with descriptive commit messages.
+5.  Push your changes to your GitHub repository.
+6.  Submit a pull request to the original repository with a clear description of your changes.

@@ -1,9 +1,11 @@
-const functions = require("./functions");
-const regex = require("./regex");
-const constants = require("./constants");
+const Functions = require("./functions");
+const Regex = require("./regex");
+const Constants = require("./constants");
+const Components = require("./components");
 
 module.exports = {
-  regex,
-  functions,
-  constants,
+  Functions,
+  Regex,
+  Constants,
+  Components,
 };

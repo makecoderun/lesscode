@@ -1,13 +1,13 @@
-import { defaultResponseMessage, successCode } from "../constants";
-import {
+const { defaultResponseMessage, successCode } = require("../constants");
+const {
   base64Regex,
   emailRegex,
   passwordRegex,
   urlRegex,
   usernameRegex,
-} from "../regex";
-import { toast } from "react-toastify";
-import jwt from "jsonwebtoken";
+} = require("../regex");
+const jwt = require("jsonwebtoken");
+const CryptoJS = require("crypto-js");
 
 /* Normal Functions Starts */
 const isURL = (url, useRegex) => {
@@ -203,17 +203,19 @@ const getDeviceType = () => {
 // For React/Next.js Frontend
 const getError = (error) => {
   for (let err in error) {
-    if (handleToast(error[err]) || error[err].hasError) return true;
+    if (error[err].hasError === true) {
+      return error[err];
+    }
 
-    if (error[err] && typeof error[err] === "object") {
+    if (error[err].hasError === undefined && typeof error[err] === "object") {
       const hasNestedError = getError(error[err]);
-      if (hasNestedError) {
-        return true;
+      if (hasNestedError && hasNestedError.hasError === true) {
+        return hasNestedError;
       }
     }
   }
 
-  return false;
+  return errObj();
 };
 const errObj = (errorCondition, message) => {
   return {
@@ -240,21 +242,6 @@ const handleState = (setState, value, name, subField) => {
     });
 
   return Boolean(setState);
-};
-const handleToast = (resp, errMessage, showOnlyOnError = true) => {
-  const getStatus = (hasError) => {
-    if (hasError === null) return "info";
-    if (hasError === undefined) return "warn";
-    if (hasError === true) return "error";
-    if (hasError === false) return "success";
-  };
-
-  const hasErr = errMessage ? true : resp?.hasError;
-  const shouldShowToast = showOnlyOnError ? Boolean(hasErr) : true;
-
-  shouldShowToast && toast[getStatus(hasErr)](errMessage || resp?.message);
-
-  return Boolean(hasErr);
 };
 /* Normal Functions Starts */
 
@@ -338,7 +325,6 @@ module.exports = {
   getError,
   errObj,
   handleState,
-  handleToast,
   isURL,
   getImageType,
   isBase64,
