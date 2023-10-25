@@ -223,19 +223,19 @@ const errObj = (errorCondition, message) => {
     message: !errorCondition ? "" : message,
   };
 };
-const handleState = (setState, value, name, subField) => {
+const handleState = (setState, value, name, root) => {
   setState &&
     setState((prev) => {
-      if (!name && !subField) {
+      if (!name && !root) {
         return value === "reverse_value" ? !prev : value;
       }
 
       const temp = { ...prev };
-      if (name && subField) {
-        temp[subField][name] =
-          value === "reverse_value" ? !prev[subField][name] : value;
+      if (name && root) {
+        temp[root][name] =
+          value === "reverse_value" ? !prev[root][name] : value;
       }
-      if (name && !subField) {
+      if (name && !root) {
         temp[name] = value === "reverse_value" ? !prev[name] : value;
       }
       return temp;

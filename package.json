@@ -1,6 +1,6 @@
 {
   "name": "next-lesscode",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "private": false,
   "main": "index.js",
   "scripts": {
