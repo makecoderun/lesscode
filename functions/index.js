@@ -87,6 +87,11 @@ const isDate = (value) => {
   return value instanceof Date && !isNaN(value);
 };
 const formatCurrency = (amount, currency, options) => {
+  if (!options?.removeDefaultUI) {
+    if (isNaN(amount)) return "No Price";
+    if (amount === 0) return "Free";
+  }
+
   const formatter = new Intl.NumberFormat(options?.locales || "en-IN", {
     style: "currency",
     currency,
@@ -181,6 +186,13 @@ const validateInputs = (field) => {
 
   // Return the validation status
   return error;
+};
+const getStringBool = (str) => {
+  if (typeof str === "string") {
+    return str === "true";
+  }
+
+  return Boolean(str);
 };
 
 // Device Function
