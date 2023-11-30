@@ -89,7 +89,7 @@ const isDate = (value) => {
 const formatCurrency = (amount, currency, options) => {
   if (!options?.removeDefaultUI) {
     if (isNaN(amount)) return "No Price";
-    if (amount === 0) return "Free";
+    if (amount === 0 && options?.showFreeOnZero) return "Free";
   }
 
   const formatter = new Intl.NumberFormat(options?.locales || "en-IN", {
@@ -194,6 +194,23 @@ const getStringBool = (str) => {
 
   return Boolean(str);
 };
+const convertCurrency = (from, to, value, rates) => {
+  try {
+    if (!from || !rates) {
+      return undefined;
+    }
+
+    const fromRate = rates[from]?.value || 1;
+    const toRate = rates[to]?.value || 1;
+
+    const convertedValue = (value / fromRate) * toRate;
+
+    return Number(convertedValue.toFixed(2));
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
+};
 
 // Device Function
 const getDeviceType = () => {
@@ -255,7 +272,7 @@ const handleState = (setState, value, name, root) => {
 
   return Boolean(setState);
 };
-/* Normal Functions Starts */
+/* Normal Functions Ends */
 
 /* API Functions Starts */
 const response = (res, code, message, other) => {
@@ -270,7 +287,7 @@ const response = (res, code, message, other) => {
 };
 const allowedMethods = (req, res, methods = ["GET"]) => {
   if (!methods.includes(req.method)) {
-    send(res, 405, `${req.method} is not allowed.`);
+    response(res, 405, `${req.method} is not allowed.`);
     return true;
   }
 
@@ -347,6 +364,8 @@ module.exports = {
   formatNumber,
   formatDate,
   validateInputs,
+  getStringBool,
+  convertCurrency,
 
   //API Functions Export
   response,
